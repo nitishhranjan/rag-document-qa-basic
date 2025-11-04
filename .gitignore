@@ -1,0 +1,47 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+venv/
+env/
+
+# Environment variables
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Vector databases
+chroma_db/
+*.db
+
+# API keys and secrets
+*.key
+secrets/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Data files (uncomment if you don't want to commit data)
+# data/*
+
+# Output files
+outputs/
