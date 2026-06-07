@@ -3,7 +3,7 @@
 
 from pathlib import Path
 from typing import List, Any
-from langchain_community.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import PyMuPDFLoader
 
 
 def process_all_pdfs(pdf_directory: str) -> List[Any]:
@@ -25,7 +25,7 @@ def process_all_pdfs(pdf_directory: str) -> List[Any]:
     for pdf_file in pdf_files:
         print(f"\nProcessing {pdf_file.name}...")
         try:
-            loader = PyPDFLoader(str(pdf_file))
+            loader = PyMuPDFLoader(str(pdf_file))
             documents = loader.load()
             
             # Add source info to metadata
