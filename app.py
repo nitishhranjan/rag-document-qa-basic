@@ -99,7 +99,7 @@ def main():
     )
     
     # Submit button
-    if st.button("🔍 Search", type="primary") or query:
+    if st.button("🔍 Search", type="primary"):
         if not query:
             st.warning("Please enter a question")
         else:
