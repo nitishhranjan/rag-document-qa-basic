@@ -1,14 +1,12 @@
 langchain
 langchain-core
 langchain-community
-pypdf
+langchain-groq
+langchain-text-splitters
 pymupdf
 sentence-transformers
-faiss-cpu
 chromadb
-langchain-groq
 python-dotenv
 rank_bm25
 streamlit
-langchain-text-splitters
 numpy
