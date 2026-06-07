@@ -14,6 +14,9 @@ RUN apt-get update && apt-get install -y \
 # ── Copy requirements BEFORE copying code (Docker layer caching) ─────────────
 # If requirements don't change, Docker skips the pip install step on rebuild
 COPY requirements.txt .
+# Install CPU-only PyTorch first — avoids the 800MB CUDA build
+# that sentence-transformers pulls by default on EC2
+RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
 RUN pip install --no-cache-dir -r requirements.txt
 
 # ── Copy your application code ───────────────────────────────────────────────
@@ -31,4 +34,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
     CMD curl -f http://localhost:8000/_stcore/health || exit 1
 
 # ── Start Streamlit app ───────────────────────────────────────────────────────
-CMD ["python", "-m", "streamlit", "run", "app.py", "--server.address=0.0.0.0", "--server.port=8000"]
+CMD ["python", "-m", "streamlit", "run", "app_unified.py", "--server.address=0.0.0.0", "--server.port=8000"]
